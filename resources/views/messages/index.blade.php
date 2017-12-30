@@ -6,7 +6,7 @@
     @if (count ($messages) > 0)
     <ul>
         @foreach ($messages as $message)
-        <li>{!! link_to_route('messages.show', $message->id, ['id' => $message->id]) !!} : {{ $message->title }} > {{ $message->content }}</li>
+        <li>{!! link_to_route('messages.show', $message->id, ['id' => $message->id]) !!} : {{ $message->title }} > {{ $message->content }} : {{ $message->status }} </li>
         @endforeach
     </ul>
     @endif

@@ -6,7 +6,7 @@
     
     <p>タイトル: {{ $message->title }}</p>
     <p>{{ $message->content }}</p>
-
+    <p>ステータス: {{ $message->status }}</p>
     {!! link_to_route('messages.edit', 'このメッセージ編集', ['id' => $message->id]) !!}
     
     {!! Form::model($message, ['route' => ['messages.destroy', $message->id], 'method' => 'delete']) !!}

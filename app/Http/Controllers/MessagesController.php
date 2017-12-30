@@ -41,11 +41,12 @@ class MessagesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, ['title' => 'required|max:255', 'content' => 'required|max:255']);
+        $this->validate($request, ['title' => 'required|max:255', 'content' => 'required|max:255', 'status' => 'required|max:10']);
         
         $message = new Message;
         $message->title = $request->title;
         $message->content = $request->content;
+        $message->status = $request->status;
         $message->save();
 
         return redirect('/');
@@ -86,10 +87,11 @@ class MessagesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, ['title' => 'required|max:255', 'content' => 'required|max:255']);
+        $this->validate($request, ['title' => 'required|max:255', 'content' => 'required|max:255', 'status' => 'required|max:10']);
         $message = Message::find($id);
         $message->title = $request->title;
         $message->content = $request->content;
+        $message->status = $request->status;
         $message->save();
 
         return redirect('/');
